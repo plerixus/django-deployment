@@ -10,7 +10,7 @@
 <a class="btn btn-default" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
 {% endif %}
 
-<p class="postcontent"> {{ post.title|safe|linebreaksbr}}</p>
+<p class="postcontent"> {{ post.text|safe|linebreaksbr}}</p>
 
 {% if user.is_authenticated %}
 <a class="btn btn-primary" href="{% url 'post_edit' pk=post.pk %}">
@@ -21,7 +21,7 @@
 </a>
 {% endif %}
 <hr>
-<a class="btn btn-primary btn-comment"href="{% url 'add_comment_to_post' pk=post.pk}">add comment</a>
+<a class="btn btn-primary btn-comment"href="{% url 'add_comment_to_post' pk=post.pk %}">add comment</a>
 
 <div class="container">
   {% for comment in post.comments.all %}
